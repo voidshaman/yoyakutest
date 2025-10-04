@@ -1,0 +1,62 @@
+.artistPage {
+  padding: 2rem;
+  max-width: 90vw;
+  min-height: 100vh;
+  margin: auto;
+  color: black;
+  font-family: sans-serif;
+}
+
+.artistHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.artistTitle {
+  font-size: 6vw;
+  color: blue;
+  text-align: center;
+  margin: 1rem 0 2rem;
+  text-transform: uppercase;
+}
+
+.artistMeta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.artistMeta a,
+.artistMeta span {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.artistBio {
+  column-count: 2;
+  column-gap: 3rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+}
+
+.artistVideos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.artistVideos iframe {
+  width: 560px;
+  height: 315px;
+  max-width: 100%;
+}

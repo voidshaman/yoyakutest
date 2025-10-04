@@ -1,0 +1,133 @@
+/* App.css */
+
+body, html {
+  min-height: 100%;
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #000000;
+  color: #000;
+}
+
+.bgWrapper {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  color: blue;
+  background-color: #fff;
+}
+.content{
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  bottom: 0;
+}
+.nav{
+  margin: auto;
+  width: 98vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 98vw;
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  text-transform: uppercase;
+  z-index: 10;
+  color: black;
+  background: transparent;
+  pointer-events: none;
+}
+
+.footer-left,
+.footer-right {
+  pointer-events: auto;
+}
+.logo {
+  font-size: 17vw;
+  font-weight: 900;
+  text-transform: uppercase;
+  
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  text-align: center;
+  line-height: 0.85;
+}
+
+.artistsGrid {
+  text-align: center;
+  column-count: 5;
+  column-gap: 2rem;
+  width: 100vw;
+  padding: 2rem 3rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .artistsGrid {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .artistsGrid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .artistsGrid {
+    column-count: 1;
+  }
+}
+
+.artistName {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  color: black;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease-in-out;
+  break-inside: avoid;
+}
+
+.artistName:hover {
+  opacity: 0.6;
+}
+
+
+/* ASCII background layer */
+.ascii-bg {
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  padding: 2rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 11px;
+  line-height: 14px;
+  white-space: pre;
+  color: rgba(0, 0, 0, 0.18); /* increase if too faint */
+  z-index: 0;                 /* was -1 -> hidden */
+  pointer-events: none;
+}
+
+/* Ensure page content paints above ASCII */
+.logo,
+.content,
+.nav,
+.artistsGrid,
+.aboutlink,
+.footer { 
+  position: relative; 
+  z-index: 1; 
+}
