@@ -13,7 +13,7 @@ body, html {
   overflow: hidden;
   min-height: 100vh;
   color: blue;
-  background-color: #fff;
+  
 }
 .content{
   height: 100%;
@@ -63,6 +63,7 @@ body, html {
 }
 
 .artistsGrid {
+  backdrop-filter: blur(2px);
   text-align: center;
   column-count: 5;
   column-gap: 2rem;
@@ -106,28 +107,91 @@ body, html {
 }
 
 
-/* ASCII background layer */
+
+
+/* layer 2: site content above ASCII */
+.siteContent {
+  position: relative;
+  z-index: 1;
+}
+
+/* keep footer above everything if used */
+.footer { 
+  position: fixed; 
+  bottom: 0; 
+  left: 0; 
+  width: 98vw; 
+  display: flex; 
+  justify-content: space-between; 
+  text-transform: uppercase; 
+  z-index: 2; 
+  background: transparent; 
+  pointer-events: none; 
+}
+.footer-left, .footer-right { pointer-events: auto; }
+
+
+/* stacking root */
+.bgWrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+}
+
+/* ASCII wrapper under text */
+.asciiLayer {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* ASCII text – BLUE */
 .ascii-bg {
-  position: fixed;
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+  position: absolute;
   inset: 0;
   margin: 0;
-  padding: 2rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  font-size: 11px;
-  line-height: 14px;
-  white-space: pre;
-  color: rgba(0, 0, 0, 0.18); /* increase if too faint */
-  z-index: 0;                 /* was -1 -> hidden */
+  font-size: 24px;
+  line-height: 24px;
+  color: rgba(0, 72, 255, 0.425); /* blue; raise alpha if too faint */
   pointer-events: none;
 }
 
-/* Ensure page content paints above ASCII */
-.logo,
-.content,
-.nav,
-.artistsGrid,
-.aboutlink,
-.footer { 
-  position: relative; 
-  z-index: 1; 
+/* site content above ASCII */
+.siteContent { position: relative; z-index: 1; }
+
+/* keep footer on top if present */
+.footer { z-index: 2; }
+
+.glyph-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  display:grid;
+  grid-template-columns:repeat(var(--cols,10), var(--cell-w,20px));
+  grid-auto-rows:var(--cell-h,20px);
+  justify-content:center;
+  align-content:center;
+  pointer-events:none;
 }
+
+.glyph-cell{
+  width:var(--cell-w,20px);
+  height:var(--cell-h,20px);
+  background-color:#d6d6d6; /* blue */
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  mask-position:center;
+  -webkit-mask-size:contain;
+  mask-size:contain;
+  opacity:.15;
+}
+
+.siteContent{ position:relative; z-index:1; }
+.footer{ z-index:2; }

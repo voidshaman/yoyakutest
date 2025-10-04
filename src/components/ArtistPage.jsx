@@ -5,7 +5,7 @@ function ArtistPage({ artist }) {
     <div className="artistPage">
       <header className="artistHeader">
         <a href="/" className="backLink">INTERWAVE</a>
-        <a className="aboutlink">ARTISTS</a>
+        <a className="aboutlink" href='/'>ARTISTS</a>
       </header>
 
       <h1 className="artistTitle">{artist.title.toUpperCase()}</h1>
